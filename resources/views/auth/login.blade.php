@@ -3,6 +3,15 @@
 @endsection
 
 <div class="container">
+    @if(session('response') !== null)
+        <div class="row">
+            <div class="col-md-6">
+                <div class="alert alert-primary" role="alert">
+                    {{ session('response') }}
+                </div>
+            </div>
+        </div>
+    @endif
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

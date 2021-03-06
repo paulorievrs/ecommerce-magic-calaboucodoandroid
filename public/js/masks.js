@@ -1,4 +1,8 @@
-function fMasc(objeto,mascara) {
+function fMasc(objeto,mascara, event) {
+
+    if(event.key === 'Tab') {
+        return;
+    }
     if(objeto.value.length === 14) {
         objeto.value = objeto.value.substring(0, objeto.value.length - 1)
         return;
@@ -14,6 +18,7 @@ function fMascEx() {
 }
 
 function mCPF(cpf){
+
     cpf=cpf.replace(/\D/g,"")
     cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2")
     cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2")
@@ -57,14 +62,4 @@ function onlynumber(evt) {
     }
 }
 
-function onlynumber(evt) {
-    let theEvent = evt || window.event;
-    let key = theEvent.keyCode || theEvent.which;
-    key = String.fromCharCode(key);
-    //let regex = /^[0-9.,]+$/;
-    let regex = /^[0-9.]+$/;
-    if (!regex.test(key)) {
-        theEvent.returnValue = false;
-        if (theEvent.preventDefault) theEvent.preventDefault();
-    }
-}
+

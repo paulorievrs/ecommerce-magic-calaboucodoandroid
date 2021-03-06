@@ -65,24 +65,43 @@
                             <label class="col-md-4 col-form-label text-md-right">CPF (*)</label>
 
                             <div class="col-md-6">
-                                <input type="text" onkeydown="javascript: fMasc( this, mCPF );" class="form-control" name="cpf">
+                                <input type="text" onkeypress="javascript: fMasc( this, mCPF, event);"  @error('cpf') is-invalid @enderror" class="form-control" name="cpf">
                             </div>
+
+                            @error('cpf')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>CPF inválido</strong>
+                                    </span>
+                            @enderror
+
                         </div>
 
                         <div class="form-group row">
                             <label class="col-md-4 col-form-label text-md-right">Data de nascimento (*)</label>
 
                             <div class="col-md-6">
-                                <input type="date" class="form-control" name="birth_date">
+                                <input type="date" class="form-control" @error('birth_date') is-invalid @enderror" name="birth_date">
                             </div>
+
+                            @error('birth_date')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>Data de nasicmento inválido</strong>
+                                    </span>
+                            @enderror
                         </div>
 
                         <div class="form-group row">
                             <label class="col-md-4 col-form-label text-md-right">LigaMagic Username</label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="ligaMagicUsername">
+                                <input type="text" class="form-control" @error('ligaMagicUsername') is-invalid @enderror" name="ligaMagicUsername">
                             </div>
+
+                            @error('ligaMagicUsername')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>Username inválido</strong>
+                                    </span>
+                            @enderror
                         </div>
 
 
@@ -102,4 +121,5 @@
 @include('store.includes.footer')
 @section('limefooter')
 @endsection
+
 

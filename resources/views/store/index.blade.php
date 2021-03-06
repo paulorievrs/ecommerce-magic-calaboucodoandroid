@@ -15,6 +15,16 @@
                     </div>
                 </div>
             @endif
+
+                @if(session('error') !== null)
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="alert alert-danger" role="alert">
+                                {{ session('error') }}
+                            </div>
+                        </div>
+                    </div>
+                @endif
             <hr />
                 <div class="row">
                 @foreach($cards as $card)
@@ -34,7 +44,7 @@
                                     <div class="post-actions">
                                         <ul class="list-unstyled">
                                             <li>
-                                                <a href="#"><i class="fas fa-boxes"></i>Quantidade: {{ $card->quantity }}</a>
+                                                <a><i class="fas fa-boxes"></i>Quantidade: {{ $card->quantity }}</a>
                                             </li>
 
                                             <li>

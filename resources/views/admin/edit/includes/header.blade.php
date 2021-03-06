@@ -131,23 +131,6 @@
             </li>
 
             <li>
-                <a href=""><i class="material-icons">account_box</i>Meu menu<i class="material-icons has-sub-menu">keyboard_arrow_left</i></a>
-                <ul class="sub-menu">
-
-                    {{--                        <li>--}}
-                    {{--                            <a href="{{ route('logout') }}"--}}
-                    {{--                               onclick="event.preventDefault();--}}
-                    {{--                                                     document.getElementById('logout-form').submit();">--}}
-                    {{--                                {{ __('Logout') }}--}}
-                    {{--                            </a>--}}
-
-                    {{--                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">--}}
-                    {{--                                @csrf--}}
-                    {{--                            </form>--}}
-                    {{--                        </li>--}}
-                </ul>
-            </li>
-            <li>
                 <a href="/"><i class="material-icons">home</i>Página inicial</a>
             </li>
 

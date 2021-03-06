@@ -13,6 +13,6 @@ class Language extends Model
 
     public function card()
     {
-        $this->belongsTo(Card::class, 'language_id');
+        return $this->belongsTo(Card::class, 'language_id');
     }
 }

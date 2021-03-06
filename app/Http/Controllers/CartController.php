@@ -148,12 +148,21 @@ class CartController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
 
+        $carts = Cart::where('user_id', '=', Auth::user()->id)->get();
+        $valorTotal = 0.0;
 
+        foreach ($carts as $cart) {
+           $valorTotal += $cart->card->value * $cart->quantity;
+        }
+        return view('store.cart', [
+            'carts' => $carts,
+            'valorTotal' => $valorTotal
+        ]);
     }
 
     /**

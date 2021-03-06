@@ -187,7 +187,7 @@ class CardController extends Controller
 
     public function welcome()
     {
-        $cards = DB::table('cards')->select('id', 'name', 'english_name', 'value', 'quantity', 'imageLink')->orderBy('created_at')->paginate(6);
+        $cards = DB::table('cards')->select('id', 'name', 'english_name', 'value', 'quantity', 'imageLink')->orderByDesc('created_at')->paginate(6);
 
         $cart_quantity = 0;
         if(Auth::check()) {
@@ -226,7 +226,7 @@ class CardController extends Controller
     public function getCards()
     {
         $hasMore = true;
-        $url = 'https://api.scryfall.com/cards/search?order=cmc&q=name=a';
+        $url = 'https://api.scryfall.com/cards/search?order=cmc&q=language%3Aportuguese';
 
         while ($hasMore) {
 
@@ -260,11 +260,13 @@ class CardController extends Controller
                         'abbreviation' => $version_abbreviation
                     ]);
 
+                    $cardtype = isset($card->printed_type_line) ? $card->printed_type_line : $card->type_line;
                     $type = Type::firstOrCreate([
-                        'name' => $card->type_line
+                        'name' => $cardtype
                     ]);
 
-                    $name = $card->name;
+                    $name = isset($card->printed_name) ? $card->printed_name : $card->name;
+                    $english_name = $card->name;
                     $imageLink = $card->image_uris->normal;
                     $quantity = 0;
                     $cmc = isset($card->cmc) ? $card->cmc : 0;
@@ -274,6 +276,7 @@ class CardController extends Controller
                     $card = Card::firstOrCreate([
 
                         'name'           => $name,
+                        'english_name'  => $english_name,
                         'imageLink'      => $imageLink,
                         'quantity'       => $quantity,
                         'version_id'     => $version->id,

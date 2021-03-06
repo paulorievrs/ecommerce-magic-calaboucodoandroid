@@ -53,16 +53,12 @@
             <li>
                 <a href="/" class="{{(Route::current()->uri === 'admin' ? 'active' : '')}}"><i class="material-icons">dashboard</i>Início</a>
             </li>
+            @if(Auth::check() && Auth::user()->user_type === 'A')
 
             <li class="sidebar-title">
                 Telas
             </li>
 
-            <li>
-                <a href="#"><i class="material-icons">view_carousel</i>Cartas</a>
-            </li>
-
-            @if(Auth::user()->user_type === 'A')
             <li>
                 <a href="/admin"><i class="material-icons">dashboard</i>Painel Administrativo</a>
             </li>
@@ -91,9 +87,9 @@
         <ul class="navbar-nav ml-auto">
             @if(Auth::check())
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle theme-settings-link" href="#">
+                <a class="nav-link dropdown-toggle theme-settings-link" href="/cart">
                     <i class="fas fa-shopping-cart"></i>
-                    @if(isset($cart_quantity))
+                    @if(isset($cart_quantity) && $cart_quantity !== 0)
                         <span class="badge badge-light">{{ $cart_quantity }}</span>
                     @endif
                 </a>
@@ -106,7 +102,7 @@
 
                 @if(Auth::check())
                 <ul class="dropdown-menu dropdown-menu-right">
-                    <li><a class="dropdown-item" href="#">Conta</a></li>
+                    <li><a class="dropdown-item" href="/profile">Conta</a></li>
                     <li><a class="dropdown-item" href="#">Configurações</a></li>
                     <li class="divider"></li>
                     <li>

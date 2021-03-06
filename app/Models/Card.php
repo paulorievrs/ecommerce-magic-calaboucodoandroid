@@ -49,7 +49,7 @@ class Card extends Model
 
     public function cart()
     {
-        return $this->belongsTo( Cart::class, 'id');
+        return $this->belongsTo( Cart::class, 'cart_id');
     }
 
 }

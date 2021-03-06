@@ -26,7 +26,8 @@
                                     <h6>{{ $card->english_name }}</h6>
                                 </div>
                                 <div class="post-body">
-                                        <img id="zoom_04" class="pb-2" style="padding: 0px 10px 10px 10px; width: 100%" data-zoom-image="{{ $card->imageLink }}" src="{{ $card->imageLink }}" />
+                                    <img id="zoom_04" class="pb-2" style="padding: 0px 10px 10px 10px; width: 100%" data-zoom-image="{{ $card->imageLink }}" src="{{ $card->imageLink }}" />
+                                    <small>Imagem representativa</small>
                                 </div>
                             </div>
                         </div>
