@@ -10,11 +10,15 @@ class LaguagesController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
     public function index()
     {
-        //
+        $languages = Language::paginate(10);
+
+        return view('admin.view.language',[
+            'languages' => $languages
+        ]);
     }
 
     /**
@@ -121,16 +125,20 @@ class LaguagesController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
     public function destroy($id)
     {
         try {
             $language = Language::find($id);
             $language->delete();
-
+            return redirect('/language')->with([
+                'response' => 'Deletado com sucesso!'
+            ]);
         } catch (\Exception $e) {
-            dd($e);
+            return redirect('/language')->with([
+                'error' => "Erro ao deletar!"
+            ]);
         }
     }
 }

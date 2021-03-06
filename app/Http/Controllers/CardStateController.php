@@ -10,11 +10,14 @@ class CardStateController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        $states = cardState::paginate(10);
+        return view('admin.view.cardState', [
+            'states' => $states
+        ]);
     }
 
     /**
@@ -120,7 +123,7 @@ class CardStateController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
     public function destroy($id)
     {
@@ -128,8 +131,13 @@ class CardStateController extends Controller
             $cardState = cardState::find($id);
             $cardState->delete();
 
+            return redirect('/cardstate')-with([
+                'response' => 'Deletado com sucesso!'
+            ]);
         } catch (\Exception $e) {
-            dd($e);
+            return redirect('/cardstate')-with([
+                'error' => 'Erro ao deletar!'
+            ]);
         }
     }
 }

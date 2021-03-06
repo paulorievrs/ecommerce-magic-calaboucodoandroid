@@ -19,9 +19,7 @@ use App\Http\Controllers\PurchaseController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [ CardController::class, 'welcome' ]);
 
 Route::group(['prefix' => 'version'], function () {
     Route::get('/', [VersionController::class, 'index']);
@@ -60,10 +58,12 @@ Route::group(['prefix' => 'card'], function () {
     Route::get('/', [CardController::class, 'index']);
     Route::get('/create', [CardController::class, 'create']);
     Route::post('/create', [CardController::class, 'store']);
-//    Route::get('/search', [CardController::class, 'search']);
+    Route::get('/search', [CardController::class, 'searchHome']);
+    Route::get('/{name}', [CardController::class, 'show']);
     Route::get('/edit/{id}', [CardController::class, 'edit']);
     Route::put('/update/{id}', [CardController::class, 'update']);
     Route::delete('/delete/{id}', [CardController::class, 'destroy']);
+    Route::get('/store/getCards', [ CardController::class, 'getCards' ]);
 });
 
 Route::group(['prefix' => 'cart'], function () {
@@ -90,3 +90,8 @@ Route::group(['prefix' => 'admin'], function () {
     });
 });
 
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

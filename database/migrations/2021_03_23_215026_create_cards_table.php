@@ -22,10 +22,26 @@ class CreateCardsTable extends Migration
             $table->string('english_name')->nullable();
             $table->integer('quantity');
             $table->boolean('isActive')->default(true);
+            $table->double('CMC');
+            $table->string('rarity');
+            $table->string('colors');
 
-            $table->foreignId('card_states_id');
-            $table->foreignId('version_id');
-            $table->foreignId('language_id');
+            $table->foreignId('type_id')
+            ->constrained()
+            ->onDelete('cascade');
+
+            $table->foreignId('card_states_id')
+            ->constrained()
+            ->onDelete('cascade');
+
+            $table->foreignId('version_id')
+            ->constrained()
+            ->onDelete('cascade');
+
+            $table->foreignId('language_id')
+            ->constrained()
+            ->onDelete('cascade');
+
         });
     }
 

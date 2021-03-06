@@ -29,7 +29,7 @@
                 <div class="col-xl">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Criar uma versão</h5>
+                            <h5 class="card-title">Alterar uma versão</h5>
 
                             <form action="/version/update/{{ $version->id }}" method="POST">
                                 @method('PUT')
@@ -47,12 +47,12 @@
 
                                 <div class="row">
                                     <div class="col-md-12 form-group pb-2">
-                                        <input type="text" class="form-control" value={{ $version->imageLink }}name="imageLink" placeholder="Link da imagem (opcional)"/>
+                                        <input type="text" class="form-control" value="{{ $version->imageLink }}" name="imageLink" placeholder="Link da imagem (opcional)"/>
                                     </div>
                                 </div>
 
                                 <div class="d-flex align-items-center justify-content-center">
-                                    <button type="submit" style="width: 1100px" class="btn btn-primary">Criar uma versão</button>
+                                    <button type="submit" style="width: 1100px" class="btn btn-primary">Alterar uma versão</button>
                                 </div>
                             </form>
                         </div>

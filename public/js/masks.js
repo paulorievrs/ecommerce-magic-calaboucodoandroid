@@ -45,8 +45,7 @@ function mphone(v) {
     return r;
 }
 
-JavaScript
-//
+
 function onlynumber(evt) {
     let theEvent = evt || window.event;
     let key = theEvent.keyCode || theEvent.which;

@@ -44,7 +44,7 @@ body {
 }
 
 .lime-header .navbar-nav .dropdown .dropdown-menu li a.active:hover
-.dropdown-menu a.active:hover { 
+.dropdown-menu a.active:hover {
     background: #037AFB;
     color: #fff;
 }
@@ -181,6 +181,23 @@ search-results .search-results-header a#closeSearch:hover {
     background: #242935;
     border-color: #3d4352;
 }
+.pagination > li > a,
+.pagination > li > span {
+    color: #242935; // use your own color here
+}
+
+.pagination {
+    background-color: #242935;
+}
+.pagination > .active > a,
+.pagination > .active > a:focus,
+.pagination > .active > a:hover,
+.pagination > .active > span,
+.pagination > .active > span:focus,
+.pagination > .active > span:hover {
+    background-color: #d4d4d4;
+    border-color: #d4d4d4;
+}
 
 .custom-control-input:disabled~.custom-control-label::before {
     background: #242935;
@@ -302,7 +319,7 @@ search-results .search-results-header a#closeSearch:hover {
     box-shadow: 0 0 0 0.2rem rgba(230, 230, 230, 0.25);
 }
 
-.btn-secondary:not(:disabled):not(.disabled):active:focus, 
+.btn-secondary:not(:disabled):not(.disabled):active:focus,
 .btn-secondary:not(:disabled):not(.disabled).active:focus,
 .show > .btn-secondary.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(230, 230, 230, 0.5);
@@ -366,7 +383,7 @@ pre {
     background: #2C3041;
 }
 
-.list-group-item { 
+.list-group-item {
     background-color: #1F2431;
     border-color: rgba(116, 121, 133, .3);;
 }
@@ -409,14 +426,14 @@ pre {
 }
 
 .popover-header {
-    padding: 9px 15px;   
+    padding: 9px 15px;
     background: #1F2431;
     border-bottom-color: #414553;
     color: #747985;
 }
 
 .popover-body {
-    padding: 9px 15px; 
+    padding: 9px 15px;
     font-size: 13px;
     color: #747985;
 }
@@ -482,7 +499,7 @@ pre {
     color: #9ba0ab!important;
 }
 
-.plupload_disabled, 
+.plupload_disabled,
 a.plupload_disabled {
     background: #4f5566;
     color: #9ba0ab;

@@ -27,7 +27,7 @@
     <!-- Theme Styles -->
     <link href="../../lime/assets/assets/css/lime.min.css" rel="stylesheet">
     <link href="../../lime/assets/assets/css/custom.css" rel="stylesheet">
-    <link href="../../lime/assets/assets/css/themes/admin2.css" rel="stylesheet">
+{{--    <link href="../../lime/assets/assets/css/themes/admin2.css" rel="stylesheet">--}}
 
 
 
