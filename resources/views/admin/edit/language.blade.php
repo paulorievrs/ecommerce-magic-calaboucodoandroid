@@ -46,7 +46,7 @@
 
 
                                 <div class="d-flex align-items-center justify-content-center">
-                                    <button type="submit" style="width: 1100px" class="btn btn-primary">Criar um idioma</button>
+                                    <button type="submit" style="width: 1100px" class="btn btn-primary">Editar um idioma</button>
                                 </div>
                             </form>
                         </div>

@@ -13,11 +13,12 @@ class Cart extends Model
 
     public function card()
     {
-        $this->hasOne( Card::class, 'card_id');
+        return $this->hasOne( Card::class, 'id', 'card_id');
     }
+
 
     public function user()
     {
-        $this->hasOne( User::class, 'user_id');
+        return $this->hasOne( User::class, 'id', 'user_id');
     }
 }

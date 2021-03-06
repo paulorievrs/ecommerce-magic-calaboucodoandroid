@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->enum('user_type', ['A', 'C'])->default('C');
 
-            $table->string('document');
+            $table->string('cpf');
             $table->date('birth_date');
             $table->string('ligaMagicUsername')->nullable();
 
